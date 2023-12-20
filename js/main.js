@@ -4,7 +4,6 @@ $(document).ready(function() {
     function makeRandomArr(a, b) {
         return Math.random() - 0.5;
     }
-    
     function random() {
         let a = $(".card__item");
     
@@ -19,14 +18,10 @@ $(document).ready(function() {
             start = true;
         }
         else {
-            if ($(".hide").length == 0)
-                $(".win-block").addClass("show");
-            else {
-                setTimeout(function() {
-                    $(".lose-block").addClass("show");
-                }, 1300);
-                $(".card__item").removeClass("hide");
-            }
+            setTimeout(function() {
+                $(".lose-block").addClass("show");
+            }, 1300);
+            $(".card__item").removeClass("hide");
         }
     }
 
@@ -37,17 +32,19 @@ $(document).ready(function() {
         start = false;
     }
 
+    // GAME
+    let f = true;
+    let s = true;
+    let nextClick = true;
+
+    let first = 0;
+    let seccond = 0;
+
+    let hideFirst = 0;
+    let hideSeccond = 0;
+
     function game() {
-        // GAME
-        let f = true;
-        let s = true;
-        let nextClick = true;
-
-        let first = 0;
-        let seccond = 0;
-
-        let hideFirst = 0;
-        let hideSeccond = 0;
+        console.log(nextClick, start);
 
         $(".card__item").click(function (e) {
             console.log(start);
@@ -61,6 +58,8 @@ $(document).ready(function() {
                     hideSeccond = $(this);
                     nextClick = false;
                 }
+
+                console.log(nextClick, start);
 
                 if (f && $(this).hasClass("card__item hide")) {
                     f = false;
