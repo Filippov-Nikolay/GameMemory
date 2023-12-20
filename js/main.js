@@ -1,4 +1,17 @@
 $(document).ready(function() {
+    function makeRandomArr(a, b) {
+        return Math.random() - 0.5;
+    }
+
+    function random() {
+        let a = $(".card__item");
+
+        a.sort(makeRandomArr);
+        $(".card").html(a);
+    }
+
+    random();
+
     let start = false;
 
     // START GAME
@@ -25,6 +38,7 @@ $(document).ready(function() {
     $(".block__btn").click(function (e) {
         $(".nav__btn").text("start");
         $(".block-info").removeClass("show");
+        random();
         start = false;
     });
 

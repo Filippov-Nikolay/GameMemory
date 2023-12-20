@@ -20,9 +20,6 @@
 
         /* background-color: purple; */
 	}
-    .nav__btn {
-        padding-right: 0;
-    }
     .card {
         position: static;
         transform: none;
