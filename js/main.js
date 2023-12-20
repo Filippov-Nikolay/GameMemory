@@ -11,7 +11,7 @@ $(document).ready(function() {
         $(".card").html(a);
     }
     
-    function startGame() {
+    function startGameOrFinish() {
         if (!start) {
             $(".card__item").addClass("hide");
             $(".nav__btn").text("Finish");
@@ -20,8 +20,8 @@ $(document).ready(function() {
         else {
             setTimeout(function() {
                 $(".lose-block").addClass("show");
+                $(".card__item").removeClass("hide");
             }, 1300);
-            $(".card__item").removeClass("hide");
         }
     }
 
@@ -103,7 +103,7 @@ $(document).ready(function() {
 
     // START GAME
     $(".nav__btn").click(function (e) {
-        startGame();
+        startGameOrFinish();
         game();
     });
 
