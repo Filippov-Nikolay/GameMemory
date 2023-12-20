@@ -19,15 +19,18 @@ $(document).ready(function() {
         }
         else {
             setTimeout(function() {
-                $(".lose-block").addClass("show");
                 $(".card__item").removeClass("hide");
             }, 1300);
+            setTimeout(function() {
+                $(".lose-block").addClass("show");
+            }, 2000);
         }
     }
 
     function playAgain() {
         $(".nav__btn").text("start");
         $(".block-info").removeClass("show");
+        $(".card__item").removeClass("hide");
         random();
         start = false;
     }
@@ -44,8 +47,6 @@ $(document).ready(function() {
     let hideSeccond = 0;
 
     function game() {
-        console.log(nextClick, start);
-
         $(".card__item").click(function (e) {
             console.log(start);
             console.log(nextClick);
@@ -102,7 +103,7 @@ $(document).ready(function() {
     random();
 
     // START GAME
-    $(".nav__btn").click(function (e) {
+    $(".nav__btn").click(function (e) {        
         startGameOrFinish();
         game();
     });
